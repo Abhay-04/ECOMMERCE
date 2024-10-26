@@ -5,7 +5,6 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
-  updateProfile,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -58,7 +57,6 @@ const Login = () => {
               email: email,
             })
           );
-       
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -87,7 +85,7 @@ const Login = () => {
               email: email,
             })
           );
-          
+
           // ...
         })
         .catch((error) => {
@@ -103,7 +101,6 @@ const Login = () => {
       .then((result) => {
         // Successfully logged in
         console.log(result.user);
-        
       })
       .catch((error) => {
         console.error("Error during login", error);
