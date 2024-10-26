@@ -1,18 +1,63 @@
 import React, { useEffect } from "react";
 import Logo from "../../src/logo.webp";
-import { onAuthStateChanged } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser, removeUser } from "../store/userSlice";
+import { auth } from "../utils/firebase";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const { uid, email } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+          })
+        );
+        navigate("/home");
+
+        // ...
+      } else {
+        // User is signed out
+        dispatch(removeUser());
+        navigate("/");
+
+        // ...
+      }
+    });
+  }, []);
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+  };
   return (
     <div className="">
       <div className="py-3 px-10">
         <ul className="flex justify-end gap-6 text-xs font-normal">
           <li className="cursor-pointer">Help</li>
           <li className="cursor-pointer">Orders & Return</li>
-          <li className="cursor-pointer">Hi , John</li>
+          {location.pathname === "/home" && (
+            <li className="cursor-pointer">Hi , John</li>
+          )}
+          {location.pathname === "/home" && (
+            <button onClick={() => handleSignOut()}>Logout</button>
+          )}
         </ul>
       </div>
       <div className=" flex justify-between items-center px-6">
@@ -35,8 +80,8 @@ const Header = () => {
       </div>
       <div className="bg-[#F4F4F4] text-center text-sm font-medium py-3">
         <h1>
-          <i class="ri-arrow-left-s-line mr-6"></i>Get 10% off on business sign up{" "}
-          <i class="ri-arrow-right-s-line ml-6"></i>
+          <i class="ri-arrow-left-s-line mr-6"></i>Get 10% off on business sign
+          up <i class="ri-arrow-right-s-line ml-6"></i>
         </h1>
       </div>
     </div>
