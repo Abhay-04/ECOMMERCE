@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "../../src/logo.webp";
+import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+
+  
   return (
     <div className="">
       <div className="py-3 px-10">
