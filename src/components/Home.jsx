@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import CategoryComponent from "./categoryComponent";
+
+import CategoryComponent from "./CategoryComponent";
 
 const Home = () => {
-  // const categories = useSelector((store) => store.categories);
-  // console.log(categories);
-
   return (
     <div>
       <h1>Please mark your interests!</h1>
