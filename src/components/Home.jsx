@@ -16,6 +16,14 @@ const Home = () => {
       ))} */}
 
       <CategoryComponent />
+
+
+       {/* {categories.map((c) => (
+        <div className="flex">
+          <input type="checkbox" className="mr-2" />
+          <p>{c}</p>
+        </div>
+      ))} */}
     </div>
   );
 };
