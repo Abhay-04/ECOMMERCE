@@ -79,7 +79,7 @@ const Header = () => {
         </div>
       </div>
       <div className="bg-[#F4F4F4] text-center text-sm font-semibold py-3 mt-4">
-        <h1 className=" ml-40">
+        <h1 className="  ml-30 xl:ml-40">
           <i class="ri-arrow-left-s-line mr-6"></i>Get 10% off on business sign
           up <i class="ri-arrow-right-s-line ml-6"></i>
         </h1>

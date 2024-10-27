@@ -111,7 +111,7 @@ const Login = () => {
     <div>
       <form onSubmit={(e) => e.preventDefault()}>
         <div className=" pt-10  flex justify-center sm:justify-center items-center sm:items-center ">
-          <div className="flex flex-col gap-3 w-full border sm:min-w-[400px] h-auto lg:min-h-[70vh]   sm:w-[80vw] md:w-[50vw] lg:w-[40vw] xl:w-[24vw]  p-4 sm:py-12  sm:px-14 rounded-md  ">
+          <div className="flex flex-col gap-3 w-full border sm:min-w-[400px] h-auto lg:min-h-[70vh]   sm:w-[80vw] md:w-[50vw] lg:w-[45vw] xl:w-[24vw]  p-4 sm:py-12  sm:px-14 rounded-md  ">
             <h1 className="text-4xl text-center font-semibold mb-4">
               {isSignForm ? "Login" : "Create your account"}
             </h1>
