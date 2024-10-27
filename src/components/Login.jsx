@@ -112,20 +112,26 @@ const Login = () => {
       <form onSubmit={(e) => e.preventDefault()}>
         <div className=" pt-10  flex justify-center sm:justify-center items-center sm:items-center ">
           <div className="flex flex-col gap-3 w-full border sm:min-w-[400px] h-auto lg:min-h-[70vh]   sm:w-[80vw] md:w-[50vw] lg:w-[40vw] xl:w-[24vw]  p-4 sm:py-12  sm:px-14 rounded-md  ">
-            <h1 className="text-4xl text-center font-bold mb-4">
+            <h1 className="text-4xl text-center font-semibold mb-4">
               {isSignForm ? "Login" : "Create your account"}
             </h1>
 
             {isSignForm && (
               <div className="text-center">
-                <p>Welcome back to ECOMMERCE</p>
-                <p>The next gen business marketplace</p>
+                <p className="text-xl font-semibold">
+                  Welcome back to ECOMMERCE
+                </p>
+                <p className="my-2 text-base">
+                  The next gen business marketplace
+                </p>
               </div>
             )}
 
             {!isSignForm && (
               <div>
-                <label for="name">Name</label>
+                <label for="name" className="font-medium">
+                  Name
+                </label>
                 <input
                   ref={fullName}
                   type="text"
@@ -137,7 +143,9 @@ const Login = () => {
             )}
 
             <div>
-              <label for="email">Email</label>
+              <label for="email" className="font-medium">
+                Email
+              </label>
               <input
                 ref={email}
                 id="email"
@@ -148,7 +156,9 @@ const Login = () => {
             </div>
 
             <div>
-              <label for="password">Password</label>
+              <label for="password" className="font-medium">
+                Password
+              </label>
 
               <div className="relative items-start text-md font-semibold mb-1 rounded-sm  border border-gray-500 ">
                 <input
@@ -169,7 +179,9 @@ const Login = () => {
 
             {!isSignForm && (
               <div>
-                <label for="confirmPassword">Confirm Password</label>
+                <label for="confirmPassword" className="font-medium">
+                  Confirm Password
+                </label>
 
                 <div className="relative items-start text-md font-semibold mb-1 rounded-sm bg-black border border-gray-500 ">
                   <input
